@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+        <style type = "text/tailwindcss">
+          @layer base {
+          input[type="number"]::-webkit-inner-spin-button,
+          input[type="number"]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+            margin: 0;
+          }
+        }
+        </style>
+
+        
+        <link rel="stylesheet" href="/public/css/styles.css">
+    </head>
+    <body>
+        <div class="h-screen w-full grid border border-black place-content-center bg-black">
+            <div class="grid grid-rows-2 border border-black w-96 h-96 place-content-center m-1">
+              <div class=" grid border border-black m-8 place-content-center h-28">
+                <p class="text-white text-8xl font-bold" id="num3"></p>
+              </div>
+              <div class="grid grid-rows-2 border border-black m-1 h-48">
+                <form id="form" autocomplete="off">
+                <div class="grid border border-black m-1 place-content-center">
+                  
+                    <input type="number" value="" class="m-2 text-white text-3xl text-center border border-4 border-sky-600 rounded-full focus:outline-none focus:ring-1 focus:ring-sky-600 bg-transparent" id="inputAns">
+                  
+                </div>
+                <div class="grid border border-black m-2 place-content-center">
+
+                  <button type="submit" class="text-green-500 border border-4 border-green-500 m-2 w-28 h-10 rounded-full hover:text-white hover:bg-green-700"> Next</button>
+
+                </div>
+              </form>
+            </div>
+          </div>
+                <div class="grid border border-black m-2 place-content-center">
+
+                  <a href="/topics">
+                    <button type="submit" class="m-4 text-black font-semibold bg-gradient-to-r from-orange-500 to-lime-400 w-28 h-10 rounded-full hover:text-black hover:from-green-500 hover:to-lime-300">Topics</button>
+                  </a>
+                </div>
+              
+              
+            </div>
+          </div>
+
+          <script>
+
+const numGen3 = Math.floor(Math.random()*90 + 10);
+const ansInput = document.getElementById("inputAns");
+document.getElementById("num3").innerHTML = "( " + numGen3 + " )²";
+const form = document.getElementById("form");
+var answer = numGen3*numGen3;
+form.addEventListener('submit',(e) => {
+    if(answer !== ansInput.valueAsNumber){
+        e.preventDefault();
+    }
+    
+});
+
+          </script>
+
+    
+    </body>
+</html>
